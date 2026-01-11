@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>FocusProgress Akira</title>
-<link rel="manifest" href="/focusprogress-akira/manifest.json">
+<link rel="manifest" href="./manifest.json">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
@@ -54,7 +54,7 @@
 let minutes = 0;
 const timerDisplay = document.getElementById("timer");
 
-// Événements simplifiés (sans images)
+// Événements simples (sans images)
 const events = [
   {minute: 1, msg: "Première étape atteinte !"},
   {minute: 3, msg: "Tu continues !"},
@@ -66,7 +66,7 @@ function triggerEvent(event) {
   alert(event.msg);
 }
 
-// Chronomètre
+// Chrono toutes les minutes
 setInterval(() => {
   minutes++;
   timerDisplay.textContent = "Temps passé : " + minutes + " min";
@@ -76,7 +76,7 @@ setInterval(() => {
       triggerEvent(ev);
     }
   });
-}, 60000); // toutes les minutes
+}, 60000); 
 </script>
 
 </body>
