@@ -7,7 +7,7 @@
   "theme_color": "#FF0000",
   "icons": [
     {
-      "src": "/focusprogress/icon-192.png",
+      "src": "/focusprogress/event3.png",
       "sizes": "192x192",
       "type": "image/png"
     },
@@ -18,5 +18,6 @@
     }
   ]
 }
+
 
 
