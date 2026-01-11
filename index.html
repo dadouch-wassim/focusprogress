@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>FocusProgress Akira</title>
+<link rel="manifest" href="manifest.json">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #0A0A0A;
+    color: #FF0000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 3em;
+    text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000;
+    animation: glitch 1.5s infinite;
+  }
+
+  #timer {
+    font-size: 2.5em;
+    margin-top: 20px;
+    text-shadow: 0 0 10px #FF0000;
+    animation: pulse 2s infinite alternate;
+  }
+
+  #eventImg {
+    width: 80%;
+    margin-top: 30px;
+    display: none;
+    border: 2px solid #FF0000;
+    box-shadow: 0 0 20px #FF0000, 0 0 40px #FF0000;
+    animation: pulse 1s infinite alternate;
+    border-radius: 10px;
+  }
+
+  @keyframes glitch {
+    0% { text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000; }
+    50% { text-shadow: -2px 0 5px #FF0000, 2px 2px 10px #FF0000; }
+    100% { text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000; }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+  }
+</style>
+</head>
+<body>
+
+<h1>FOCUS PROGRESS</h1>
+<p id="timer">Temps passé : 0 min</p>
+<img id="eventImg" src="event1.png" alt="Événement">
+
+<script>
+let minutes = 0;
+const timerDisplay = document.getElementById("timer");
+const eventImg = document.getElementById("eventImg");
+
+// Événements à déclencher
+const events = [
+  {minute: 1, img: "event1.png", msg: "Première étape atteinte !"},
+  {minute: 3, img: "event2.png", msg: "Tu continues !"},
+  {minute: 5, img: "event3.png", msg: "5 minutes ! Excellent !"},
+  {minute: 10, img: "event4.png", msg: "10 minutes ! Imparable !"}
+];
+
+// Fonction pour afficher l'événement
+function triggerEvent(event) {
+  eventImg.src = event.img;
+  eventImg.style.display = "block";
+  alert(event.msg); // Notification simple
+}
+
+// Chronomètre
+setInterval(() => {
+  minutes++;
+  timerDisplay.textContent = "Temps passé : " + minutes + " min";
+
+  // Vérifie si un événement doit être déclenché
+  events.forEach(ev => {
+    if(ev.minute === minutes){
+      triggerEvent(ev);
+    }
+  });
+}, 60000);
+</script>
+
+</body>
+</html>
