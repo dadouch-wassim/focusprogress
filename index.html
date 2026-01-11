@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>FocusProgress Akira</title>
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="/focusprogress-akira/manifest.json">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
 
@@ -59,7 +59,7 @@
 
 <h1>FOCUS PROGRESS</h1>
 <p id="timer">Temps passé : 0 min</p>
-<img id="eventImg" src="event1.png" alt="Événement">
+<img id="eventImg" src="/focusprogress-akira/event1.png" alt="Événement">
 
 <script>
 let minutes = 0;
@@ -68,25 +68,22 @@ const eventImg = document.getElementById("eventImg");
 
 // Événements à déclencher
 const events = [
-  {minute: 1, img: "event1.png", msg: "Première étape atteinte !"},
-  {minute: 3, img: "event2.png", msg: "Tu continues !"},
-  {minute: 5, img: "event3.png", msg: "5 minutes ! Excellent !"},
-  {minute: 10, img: "event4.png", msg: "10 minutes ! Imparable !"}
+  {minute: 1, img: "/focusprogress-akira/event1.png", msg: "Première étape atteinte !"},
+  {minute: 3, img: "/focusprogress-akira/event2.png", msg: "Tu continues !"},
+  {minute: 5, img: "/focusprogress-akira/event3.png", msg: "5 minutes ! Excellent !"},
+  {minute: 10, img: "/focusprogress-akira/event4.png", msg: "10 minutes ! Imparable !"}
 ];
 
-// Fonction pour afficher l'événement
 function triggerEvent(event) {
   eventImg.src = event.img;
   eventImg.style.display = "block";
-  alert(event.msg); // Notification simple
+  alert(event.msg);
 }
 
-// Chronomètre
 setInterval(() => {
   minutes++;
   timerDisplay.textContent = "Temps passé : " + minutes + " min";
 
-  // Vérifie si un événement doit être déclenché
   events.forEach(ev => {
     if(ev.minute === minutes){
       triggerEvent(ev);
@@ -97,3 +94,4 @@ setInterval(() => {
 
 </body>
 </html>
+
